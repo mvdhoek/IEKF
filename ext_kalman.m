@@ -42,16 +42,6 @@ function [ x_k1,P_k1,K_k1 ] = ext_kalman( sys,initial_param,Q_k,R_k,inputs,z_k1,
         % Discretize state matrices
         [phi,gamma] = c2d(F,sys.G,dt);
         
-        % check system observability
-%         Ob = H;
-%         for n = 1:M-1
-%             Ob = [Ob ; H * phi.^n];
-%         end
-%         
-%         if rank(Ob) < length(phi)
-%             warning('Some states unobservable');
-%         end
-
         % calculate covariance matrix estimation
         P_k1(:,:,i+1) = phi*P_k1(:,:,i)*phi' + gamma*diag(Q_k)*gamma';
     
