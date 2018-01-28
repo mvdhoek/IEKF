@@ -4,6 +4,10 @@
 % system dynamics and jacobian matrices of f(x,u) and h(x,u) must be
 % defined in the main script and are given as input to this function.
 %
+% The Jacobian matrix is calculated numerically by numjacobian.m. The IEKF
+% is enabled by default (IEKF = 1) with a maximum of 100 iterations
+% (max_iter).
+%
 % M.A. van den Hoek
 % Delft University of Technology
 % Faculty of Aerospace Engineering
@@ -13,7 +17,7 @@
 function [ x_k1,P_k1,K_k1 ] = ext_kalman( sys,initial_param,Q_k,R_k,inputs,z_k1,dt )
 
     % iterative extended kalman
-    IEKF = 0;
+    IEKF = 1;
     
     % simulation parameters
     max_iter = 100;
