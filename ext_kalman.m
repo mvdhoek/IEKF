@@ -20,7 +20,7 @@ function [ x_k1,P_k1,K_k1 ] = ext_kalman( sys,initial_param,Q_k,R_k,inputs,z_k1,
     IEKF = 1;
     
     % simulation parameters
-    max_iter = 100;
+    max_iter = 110;
 
     % calculate size of time vector and state vector
     N = size(z_k1,2);
